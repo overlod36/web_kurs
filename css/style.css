@@ -8,7 +8,9 @@ header .header-bar {
 }
 
 body {
+    position: relative;
     margin: 0px;
+    background-color: #859164;
 }
 
 .header-bar-search {
@@ -22,7 +24,15 @@ body {
     position: absolute;
     left: 80%;
     top: 23%;
+}
 
+.main-cassette .main-cassette-img img{
+    width: 300px;
+}
+
+.main-cassette {
+    position: absolute;
+    left: 80%;
 }
 
 
