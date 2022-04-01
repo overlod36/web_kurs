@@ -9,22 +9,20 @@
         <header>
             <div class="header-bar">
 
-                <div class="header-cart">
+                <div class="header-bar-cart">
                     <a href="/cart" class="cart-but">
-                    <span class="cart-icon" aria-hidden="true"><img src="img/cart.png" /></span>
+                    <span class="cart-icon"><img src="img/cart.png" /></span>
                     </a>
                 </div>
 
 
                 <div class="header-bar-search">
-                    
-                    <form action="/search" method="get" class="header-bar__search-form clearfix" role="search">
-
-                    <input type="search" name="q" value="" aria-label="Search our store" class="header-bar__search-input">
-                    <button type="submit" class="btn icon-fallback-text header-bar__search-submit">
-                    <span class="icon icon-search" aria-hidden="true"></span>
-                    <span class="fallback-text">Search</span>
-                    </button>
+                    <form action="/search" method="get" class="header-bar-search-form" role="search">
+                        <input type="search" name="q" value="" class="header-bar-search-input">
+                        <button type="submit" class="header-bar-search-btn">
+                            <span class="header-bar-icon-search"><img src="img/loupe_small.png"/></span>
+                            <span class="header-bar-text-search">Поиск</span>
+                        </button>
                     </form>
                 </div>
 
@@ -33,7 +31,6 @@
         <main>
         </main>
         <footer>
-            <img scr = "cat.jpg"/>
         </footer>    
     </body>
 </html>

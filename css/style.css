@@ -1,4 +1,11 @@
-
+.header-bar {
+    font-size: 1.07692em;
+    background-color: #324f2f;
+    color: black;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-align: center;
+}
 
 
 
