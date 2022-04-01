@@ -2,9 +2,24 @@
     font-size: 1.07692em;
     background-color: #324f2f;
     color: black;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    text-align: center;
+    padding-top: 21px;
+    padding-bottom: 21px;
+    position: relative;
+
+}
+
+.header-bar-search {
+    position: absolute;
+    left: 83%;
+    bottom: 0%;
+    top: 10%;
+}
+
+.header-bar-cart{
+    position: absolute;
+    left: 80%;
+    top: 15%;
+
 }
 
 
