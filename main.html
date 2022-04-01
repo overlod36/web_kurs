@@ -1,21 +1,39 @@
 <!doctype html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="css/new_styles.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <title>Прокат кассет</title>
     </head>
     <body>
         <header>
-            <h1><a>MShop</a></h1>
-            <nav>
-                <a href="#">Регистрация</a> | <a href="#">ВиО</a> |
-                <a href="#">Техподдержка</a>
-            </nav>
+            <div class="header-bar">
+
+                <div class="header-cart">
+                    <a href="/cart" class="cart-but">
+                    <span class="cart-icon" aria-hidden="true"><img src="img/cart.png" /></span>
+                    </a>
+                </div>
+
+
+                <div class="header-bar-search">
+                    
+                    <form action="/search" method="get" class="header-bar__search-form clearfix" role="search">
+
+                    <input type="search" name="q" value="" aria-label="Search our store" class="header-bar__search-input">
+                    <button type="submit" class="btn icon-fallback-text header-bar__search-submit">
+                    <span class="icon icon-search" aria-hidden="true"></span>
+                    <span class="fallback-text">Search</span>
+                    </button>
+                    </form>
+                </div>
+
+            </div>
         </header>
         <main>
         </main>
         <footer>
+            <img scr = "cat.jpg"/>
         </footer>    
     </body>
 </html>
