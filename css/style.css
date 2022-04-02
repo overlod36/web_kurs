@@ -51,14 +51,14 @@ body {
 }
 
 .main-middle-menu .main-middle-menu-wrapper .main-middle-menu-list li{
-    margin: 0;
     display: inline-block;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
 }
 
 .main-middle-menu-list li{
-    margin: 0;
+    margin: 10px;
     display: inline-block;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -74,12 +74,11 @@ body {
     min-width: 50px;
     font-size: 18px;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 a .active{
-    color: #827232;
-    background: #9aa874;
+    
 }
 
 .main-middle-menu-wrapper {
@@ -91,25 +90,47 @@ a .active{
 nav .main-middle-menu ul{
     display: block;
     list-style-type: disc;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
-    padding: 0;
+    margin-block-start: 3em;
+    margin-block-end: 3em;
+    margin-inline-start: 10px;
+    margin-inline-end: 10px;
+    padding-inline-start: 50px;
+    padding: 10;
 }
 
 .main-middle-menu {
-    margin-bottom: 20px;
+    margin-bottom: 80px;
     border-top: 1px solid #b6c787;
     border-bottom: 1px solid #b6c787;
     width: 100%;
     text-align: center;
 }
 
+.li_act_1:hover{
+    /*background: #9aa874;*/
+    padding-top: 10px;
+    padding-bottom: 35px;
+
+}
+
+.main-middle-menu li ul{
+    position: absolute;
+    min-width: 150px;
+    display: none;
+}
+
+.main-middle-menu li:hover > ul{
+    display: block;
+}
+
+.main-middle-menu ul li a:hover{
+    color: #827232;
+    transition: all 0.3s ease;
+}
+
 .main-page-cassettes{
     position: absolute;
-    top: 800%;
+    top: 920%;
     left: 5%;
 }
 
@@ -169,4 +190,9 @@ nav .main-middle-menu ul{
     background: none;
     font-family: inherit;
     font-size: inherit;
+}
+
+.li_act_2:hover{
+    padding-top: 10px;
+    padding-bottom: 35px;
 }
