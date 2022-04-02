@@ -61,6 +61,8 @@ body {
     display: inline-block;
     padding-top: 10px;
     padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 
@@ -79,5 +81,27 @@ a .active{
     background: #9aa874;
 }
 
+.main-middle-menu-wrapper {
+    max-width: 1030px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
 
+nav .main-middle-menu ul{
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    padding: 0;
+}
 
+.main-middle-menu {
+    margin-bottom: 20px;
+    border-top: 1px solid #b6c787;
+    border-bottom: 1px solid #b6c787;
+    width: 100%;
+    text-align: center;
+}
