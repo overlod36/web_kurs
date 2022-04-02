@@ -110,12 +110,14 @@ nav .main-middle-menu ul{
 .main-page-cassettes{
     position: absolute;
     top: 800%;
+    left: 5%;
 }
 
 .main-list-cassettes-container{
     display: grid;
     grip-gap: 45px;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+    grid-template-columns: 250px 250px 250px 250px 250px;
     width: 80%;
     max-width: 1200px;
     margin: var(--spacing-large) auto;
@@ -134,7 +136,7 @@ nav .main-middle-menu ul{
     flex-direction: column;
     justify-content: flex-end;
     padding: 25px 20px;
-    background: #bdcf8c
+    background: #78825c;
 }
 
 .main-list-cassettes-element-name{
