@@ -15,15 +15,15 @@ body {
 
 .header-bar-search {
     position: absolute;
-    left: 83%;
+    left: 76%;
     bottom: 0%;
     top: 17%;
 }
 
 .header-bar-cart{
     position: absolute;
-    left: 80%;
-    top: 23%;
+    left: 73%;
+    top: 20.1%;
 }
 
 .main-cassette .main-cassette-img img{
@@ -104,4 +104,24 @@ nav .main-middle-menu ul{
     border-bottom: 1px solid #b6c787;
     width: 100%;
     text-align: center;
+}
+
+.main-page-cassettes{
+    position: absolute;
+    top: 800%;
+}
+
+.main-list-cassettes-container{
+    display: grid;
+    grip-gap: 45px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    width: 80%;
+    max-width: 1200px;
+    margin: var(--spacing-large) auto;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
 }
