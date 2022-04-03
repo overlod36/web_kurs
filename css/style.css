@@ -2,13 +2,22 @@ body {
 	background-color: #6b78d6;
 }
 
-footer{
-	display: block;
-}
 
 .main_page_footer{
-	padding-top: 30px;
-	padding-bottom: 20px;
+	/*display: block;*/
+	background-color: #757ba1;
+	/*height: 100px;*/
+    display: flex;
+    /*align-items: center;
+    justify-content: space-between;
+    justify-items: stretch;
+    align-content: center;
+    padding: 2% 5%;*/
+    flex-direction: column;
+}
+
+footer {
+	margin-top: auto;
 }
 
 .wrapper{
