@@ -8,63 +8,46 @@
     </head>
     <body>
         <header>
-            <div class="header-bar">
+            <div class="header_bar">
+                <div class="wrapper">
+                    <div class="header_bar_suitacase">
+                        <div class="header_bar_left">
+                            
+                        </div>
+                        <div class="header_bar_right">
+                            <div class="header_bar_cart">
+                                <a href="/cart" class="cart-but">
+                                <span class="cart-icon"><img src="img/cart.png" /></span>
+                                 Корзина 
+                                <span class="cart-count">0</span>
+                                </a>
+                            </div>
 
-                <div class="header-bar-cart">
-                    <a href="/cart" class="cart-but">
-                    <span class="cart-icon"><img src="img/cart.png" /></span>
-                    </a>
+
+                            <div class="header_bar_search">
+                                <form action="/search" method="get" class="header_bar_search_form" role="search">
+                                    <input type="search" name="q" value="" class="header_bar_search_input">
+                                    <button type="submit" class="header_bar_search_btn">
+                                        <img src="img/loupe_small.png"/>
+                                    </button>
+                                </form>
+                            </div> 
+                        </div>   
+                    </div>
                 </div>
-
-
-                <div class="header-bar-search">
-                    <form action="/search" method="get" class="header-bar-search-form" role="search">
-                        <input type="search" name="q" value="" class="header-bar-search-input">
-                        <button type="submit" class="header-bar-search-btn">
-                            <span class="header-bar-icon-search"><img src="img/loupe_small.png"/></span>
-                            <span class="header-bar-text-search">Поиск</span>
-                        </button>
-                    </form>
-                </div>
-
             </div>
         </header>
-        <main>
-            <div class="main-name">
-                <span>
-                    <h1>Магазин проката кассет и DVD</h1>
-                </span>
-            </div>
-            <div class="main-cassette">
-                <span class="main-cassette-img"><img src="img/cassette.png"/></span>
-            </div>
-            <nav class="main-middle-menu">
-                <div class="main-middle-menu-wrapper">
-                    <ul class="main-middle-menu-list">
-                        <li><a href="main.html" class="active"><span>Главная</span></a></li>
-                        <li><a href="#"><span>Новинки</span></a></li>
-                        <li class="li_act_1"><a href="#"><span>Кассеты</span></a>
-                            <ul>
-                                <li><a href="rock_cassettes_page.html">Рок</a></li>
-                                <li><a href="rap_cassettes_page.html">Рэп</a></li>
-                                <li><a href="el_cassettes_page.html">Электронная музыка</a></li>
-                                <li><a href="#">Прочее</a></li>
-                            </ul>
-                        </li>
-                        <li class="li_act_2"><a href="#"><span>DVD</span></a>
-                            <ul>
-                                <li><a href="#">Рок</a></li>
-                                <li><a href="#">Рэп</a></li>
-                                <li><a href="#">Электронная музыка</a></li>
-                                <li><a href="#">Прочее</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#"><span>Дополнительная информация</span></a></li>
-                    </ul>
-                </div>
-            </nav>
+        <main class="main_page">
+        
         </main>
-        <footer>
+        <footer class="main_page_footer">
+            <div class="wrapper">
+                <div class="main_page_footer_grid">
+                    <div class="grid_item_footer">
+                        <h4>Полезные ссылки</h4>
+                    </div>
+                </div>
+            </div>
         </footer>    
     </body>
 </html>
