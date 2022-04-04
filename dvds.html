@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <title>Прокат кассет и DVD</title>
+        <link rel="icon" type="image/png" href="img/cassette_logo.png">
+    </head>
+    <body>
+        <header>
+            <div class="header_bar">
+                <div class="wrapper">
+                    <div class="header_bar_suitacase">
+                        <div class="header_bar_left">
+                            <ul class="header_bar_ul">
+                            <li><a href="main.html">
+                            <span>ГЛАВНАЯ</span></a>
+                            </li>
+                            <li><a href="cassettes.html"><span>КАССЕТЫ</span></a>
+                            </li>
+                            <li><a href="dvds.html"><span>DVD</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="header_bar_right">
+                            <div class="header_bar_cart">
+                                <a href="/cart" class="cart-but">
+                                <span class="cart-icon"><img src="img/cart.png" /></span>
+                                 Корзина 
+                                <span class="cart-count">0</span>
+                                </a>
+                            </div>
+
+
+                            <div class="header_bar_search">
+                                <form action="/search" method="get" class="header_bar_search_form" role="search">
+                                    <input type="search" name="q" value="" class="header_bar_search_input">
+                                    <button type="submit" class="header_bar_search_btn">
+                                        <img src="img/loupe_small.png"/>
+                                    </button>
+                                </form>
+                            </div> 
+                        </div>   
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="main_page">
+            <nav class="main-page-cassettes">
+                <div class="main-list-cassettes">
+                    <ul class="main-list-cassettes-container">
+                        <li class="main-list-cassettes-element">
+                            <span class="main-list-cassettes-element-name">Русский рок</span>
+                            <a href="russian_rock_dvd.html"><img class="main-list-cassettes-element-img" src="img/rockrus.jpg"/></a>
+                        </li>
+                        <li class="main-list-cassettes-element">
+                            <span class="main-list-cassettes-element-name">Блюз</span>
+                            <a href="blues_dvd.html"><img class="main-list-cassettes-element-img" src="img/bluesy.jpg"/></a>
+                        </li>
+                        <li class="main-list-cassettes-element">
+                            <span class="main-list-cassettes-element-name">Рок 00-х</span>
+                            <a href="rock_dvd.html"><img class="main-list-cassettes-element-img" src="img/rock00.jpg"/></a>
+                        </li>
+                        <li class="main-list-cassettes-element">
+                            <span class="main-list-cassettes-element-name">Что-то</span>
+                            <a href="blues_cassette.html"><img class="main-list-cassettes-element-img" src="img/blues.jpg"/></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+
+        </main>
+        <footer class="main_page_footer">
+            <div class="wrapper">
+                <div class="main_page_footer_grid">
+                    <div class="grid_item_footer">
+                        <h4>Полезные ссылки</h4>
+                    </div>
+                </div>
+            </div>
+        </footer>    
+    </body>
+</html>
+
