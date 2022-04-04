@@ -21,8 +21,8 @@ footer {
 }
 
 .wrapper{
-	max-width: 1030px;
-	margin: 0 auto;
+	max-width: 1430px;
+	/*margin: 0 auto;*/
 	padding: 0 15px;
 	margin-right: 15px;
 }
@@ -150,6 +150,7 @@ footer {
     background: #757ba1;
 }
 
+
 .main-list-cassettes-element-name{
     margin-bottom: auto;
     text-transform: uppercase;
@@ -181,3 +182,32 @@ footer {
     font-family: inherit;
     font-size: inherit;
 }
+
+.header_bar_ul{
+	display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    list-style: none outside;
+}
+
+.header_bar_ul li{
+	margin: 0;
+    display: inline-block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.header_bar_ul li a{
+	text-align: center;
+    min-width: 50px;
+    padding: 5px 10px;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #000;
+    text-decoration: none;
+}
+
