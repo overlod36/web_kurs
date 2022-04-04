@@ -46,22 +46,8 @@
         </header>
         <main class="main_page">
             <nav class="main-page-cassettes">
-                <div class="main-list-cassettes">
-                    <ul class="main-list-cassettes-container">
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">Robert Johnson</span>
-                            <img class="main-list-cassettes-element-img" src="img/cassettes/rj_front.jpg"/>
-                            <span class="main-list-cassettes-element-price">145 Рублей</span>
-                            <button class="main-list-cassettes-element-btn">Добавить</button>
-                        </li>
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">Muddy Waters</span>
-                            <img class="main-list-cassettes-element-img" src="img/cassettes/muddy_front.jpg"/>
-                            <span class="main-list-cassettes-element-price">197 Рублей</span>
-                            <button class="main-list-cassettes-element-btn">Добавить</button>
-                        </li>
-
-                    </ul>
+                <div class="main-list-cassettes" id = "blues_cas">
+                    
                 </div>
             </nav>
 
@@ -76,5 +62,30 @@
                 </div>
             </div>
         </footer>    
+
+        <script src="scripts/root.js"></script>
+        <script src="scripts/things.js"></script>
+        <script>
+            function render() {
+                let html_el = '';
+                CATALOG.forEach(({id, type, genre, name, img, price}) => {
+                    if (type == 'Cassette' && genre == 'Blues'){
+                        html_el += `
+                        <li class="main-list-cassettes-element">
+                            <span class="main-list-cassettes-element-name">${name}</span>
+                            <img class="main-list-cassettes-element-img" src="${img}"/>
+                            <span class="main-list-cassettes-element-price">${price}</span>
+                            <button class="main-list-cassettes-element-btn">Добавить</button>
+                        </li>
+                        `;
+                    }
+                });
+                const html = `
+                <ul class="main-list-cassettes-container">${html_el}</ul>
+                `;
+                ROOT_blues_cas.innerHTML = html;
+            }
+            render();
+        </script>
     </body>
 </html>

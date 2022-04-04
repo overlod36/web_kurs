@@ -46,51 +46,8 @@
         </header>
         <main class="main_page">
             <nav class="main-page-cassettes">
-                <div class="main-list-cassettes">
-                    <ul class="main-list-cassettes-container">
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">Stop The Clocks</span>
-                            <img class="main-list-cassettes-element-img" src="img/DVD/clocks_front.jpg"/>
-                            <span class="main-list-cassettes-element-price">375 Рублей</span>
-                            <button class="main-list-cassettes-element-btn">Добавить</button>
-                        </li>
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">A Rush Of The Blood To The Head</span>
-                            <img class="main-list-cassettes-element-img" src="img/DVD/robth_front.jpg"/>
-                            <span class="main-list-cassettes-element-price">215 Рублей</span>
-                            <button class="main-list-cassettes-element-btn">Добавить</button>
-                        </li>
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">Standings On The Shoulders Of Giants</span>
-                            <img class="main-list-cassettes-element-img" src="img/DVD/standing_front.jpg"/>
-                            <span class="main-list-cassettes-element-price">145 Рублей</span>
-                            <button class="main-list-cassettes-element-btn">Добавить</button>
-                        </li>
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">Up The Bracket</span>
-                            <img class="main-list-cassettes-element-img" src="img/DVD/upthebracket-front.jpg"/>
-                            <span class="main-list-cassettes-element-price">40 Рублей</span>
-                            <button class="main-list-cassettes-element-btn">Добавить</button>
-                        </li>
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">Hail To The Thief</span>
-                            <img class="main-list-cassettes-element-img" src="img/DVD/hail_front.jpg"/>
-                            <span class="main-list-cassettes-element-price">270 Рублей</span>
-                            <button class="main-list-cassettes-element-btn">Добавить</button>
-                        </li>
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">Toxicity</span>
-                            <img class="main-list-cassettes-element-img" src="img/DVD/toxicity_front.jpg"/>
-                            <span class="main-list-cassettes-element-price">197 Рублей</span>
-                            <button class="main-list-cassettes-element-btn">Добавить</button>
-                        </li>
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">American Idiot</span>
-                            <img class="main-list-cassettes-element-img" src="img/DVD/ai_front.jpg"/>
-                            <span class="main-list-cassettes-element-price">245 Рублей</span>
-                            <button class="main-list-cassettes-element-btn">Добавить</button>
-                        </li>
-                    </ul>
+                <div class="main-list-cassettes" id="rock00_dvd">
+                    
                 </div>
             </nav>
 
@@ -104,6 +61,31 @@
                     </div>
                 </div>
             </div>
-        </footer>    
+        </footer>
+
+        <script src="scripts/root.js"></script>
+        <script src="scripts/things.js"></script>
+        <script>
+            function render() {
+                let html_el = '';
+                CATALOG.forEach(({id, type, genre, name, img, price}) => {
+                    if (type == 'DVD' && genre == 'Rock00'){
+                        html_el += `
+                        <li class="main-list-cassettes-element">
+                            <span class="main-list-cassettes-element-name">${name}</span>
+                            <img class="main-list-cassettes-element-img" src="${img}"/>
+                            <span class="main-list-cassettes-element-price">${price}</span>
+                            <button class="main-list-cassettes-element-btn">Добавить</button>
+                        </li>
+                        `;
+                    }
+                });
+                const html = `
+                <ul class="main-list-cassettes-container">${html_el}</ul>
+                `;
+                ROOT_rock00_dvd.innerHTML = html;
+            }
+            render();
+        </script>    
     </body>
 </html>
