@@ -1,0 +1,17 @@
+const CATALOG = [
+{id: 'el_1', type: 'Cassette', genre:'Rock90', name: 'OK Computer', img: 'img/cassettes/okcomputer_front.jpg', price: '300 рублей'},
+{id: 'el_2', type: 'Cassette', genre:'Rock90', name: 'In Utero', img: 'img/cassettes/inutero_front.jpg', price: '250 рублей'},
+{id: 'el_3', type: 'Cassette', genre:'Rock90', name: 'Dolittle', img: 'img/cassettes/dolittle_front.jpg', price: '375 рублей'},
+{id: 'el_4', type: 'Cassette', genre:'Rock90', name: 'Automatic For The People', img: 'img/cassettes/automaticforthepeople_front.jpg', price: '215 рублей'},
+{id: 'el_5', type: 'Cassette', genre:'Rock90', name: 'Doo', img: 'img/cassettes/goo_front.jpg', price: '263 рублей'},
+{id: 'el_6', type: 'Cassette', genre:'Rock90', name: 'Dookie', img: 'img/cassettes/dookie_front.jpg', price: '175 рублей'},
+{id: 'el_7', type: 'Cassette', genre:'Rock90', name: 'The Bends', img: 'img/cassettes/bends_front.jpg', price: '398 Рублей'},
+{id: 'el_8', type: 'Cassette', genre:'Rock90', name: 'Bleach', img: 'img/cassettes/bleach_front.jpg', price: '112 рублей'},
+{id: 'el_9', type: 'Cassette', genre:'Rock90', name: 'Last Splash', img: 'img/cassettes/lastsplash_front.jpg', price: '86 рублей'},
+{id: 'el_10', type: 'Cassette', genre:'Rock90', name: 'Rage Against The Machine', img: 'img/cassettes/rageagainstmachine_front.jpg', price: '134 рублей'},
+{id: 'el_11', type: 'Cassette', genre:'Rap', name: 'The Enimem Show', img: 'img/cassettes/theenimemshow_front.jpg', price: '450 рублей'},
+{id: 'el_12', type: 'Cassette', genre:'Rap', name: 'The Chronic', img: 'img/cassettes/thechronic_front.jpg', price: '320 рублей'},
+{id: 'el_13', type: 'Cassette', genre:'Rap', name: 'Ready To Die', img: 'img/cassettes/readytodie_front.jpg', price: '407 рублей'},
+{id: 'el_14', type: 'Cassette', genre:'Rap', name: 'The Slim Shady LP', img: 'img/cassettes/theslimshadylp_front.jpg', price: '125 рублей'},
+{id: 'el_15', type: 'Cassette', genre:'Rap', name: 'Reasonable Doubt', img: 'img/cassettes/reasonabledoubt_front.jpg', price: '246 рублей'},
+];

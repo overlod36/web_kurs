@@ -46,69 +46,8 @@
         </header>
         <main class="main_page">
             <nav class="main-page-cassettes">
-                <div class="main-list-cassettes">
-                    <ul class="main-list-cassettes-container">
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">OK Computer</span>
-                            <img class="main-list-cassettes-element-img" src="img/cassettes/okcomputer_front.jpg"/>
-                            <span class="main-list-cassettes-element-price">300 Рублей</span>
-                            <button class="main-list-cassettes-element-btn">Добавить</button>
-                        </li>
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">In Utero</span>
-                            <img class="main-list-cassettes-element-img" src="img/cassettes/inutero_front.jpg"/>
-                            <span class="main-list-cassettes-element-price">250 Рублей</span>
-                            <button class="main-list-cassettes-element-btn">Добавить</button>
-                        </li>
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">Dolittle</span>
-                            <img class="main-list-cassettes-element-img" src="img/cassettes/dolittle_front.jpg"/>
-                            <span class="main-list-cassettes-element-price">375 Рублей</span>
-                            <button class="main-list-cassettes-element-btn">Добавить</button>
-                        </li>
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">Automatic For The People</span>
-                            <img class="main-list-cassettes-element-img" src="img/cassettes/automaticforthepeople_front.jpg"/>
-                            <span class="main-list-cassettes-element-price">215 Рублей</span>
-                            <button class="main-list-cassettes-element-btn">Добавить</button>
-                        </li>
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">Doo</span>
-                            <img class="main-list-cassettes-element-img" src="img/cassettes/goo_front.jpg"/>
-                            <span class="main-list-cassettes-element-price">263 Рублей</span>
-                            <button class="main-list-cassettes-element-btn">Добавить</button>
-                        </li>
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">Dookie</span>
-                            <img class="main-list-cassettes-element-img" src="img/cassettes/dookie_front.jpg"/>
-                            <span class="main-list-cassettes-element-price">175 Рублей</span>
-                            <button class="main-list-cassettes-element-btn">Добавить</button>
-                        </li>
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">The Bends</span>
-                            <img class="main-list-cassettes-element-img" src="img/cassettes/bends_front.jpg"/>
-                            <span class="main-list-cassettes-element-price">398 Рублей</span>
-                            <button class="main-list-cassettes-element-btn">Добавить</button>
-                        </li>
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">Bleach</span>
-                            <img class="main-list-cassettes-element-img" src="img/cassettes/bleach_front.jpg"/>
-                            <span class="main-list-cassettes-element-price">112 Рублей</span>
-                            <button class="main-list-cassettes-element-btn">Добавить</button>
-                        </li>
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">Last Splash</span>
-                            <img class="main-list-cassettes-element-img" src="img/cassettes/lastsplash_front.jpg"/>
-                            <span class="main-list-cassettes-element-price">86 Рублей</span>
-                            <button class="main-list-cassettes-element-btn">Добавить</button>
-                        </li>
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">Rage Against The Machine</span>
-                            <img class="main-list-cassettes-element-img" src="img/cassettes/rageagainstmachine_front.jpg"/>
-                            <span class="main-list-cassettes-element-price">134 Рублей</span>
-                            <button class="main-list-cassettes-element-btn">Добавить</button>
-                        </li>
-                    </ul>
+                <div class="main-list-cassettes" id = "rock90_cas_list">
+                    
                 </div>
             </nav>
 
@@ -122,6 +61,31 @@
                     </div>
                 </div>
             </div>
-        </footer>    
+        </footer>  
+
+        <script src="scripts/root.js"></script>
+        <script src="scripts/things.js"></script>
+        <script>
+            function render() {
+                let html_el = '';
+                CATALOG.forEach(({id, type, genre, name, img, price}) => {
+                    if (type == 'Cassette' && genre == 'Rock90'){
+                        html_el += `
+                        <li class="main-list-cassettes-element">
+                            <span class="main-list-cassettes-element-name">${name}</span>
+                            <img class="main-list-cassettes-element-img" src="${img}"/>
+                            <span class="main-list-cassettes-element-price">${price}</span>
+                            <button class="main-list-cassettes-element-btn">Добавить</button>
+                        </li>
+                        `;
+                    }
+                });
+                const html = `
+                <ul class="main-list-cassettes-container">${html_el}</ul>
+                `;
+                ROOT_rock90_cas.innerHTML = html;
+            }
+            render();
+        </script>  
     </body>
 </html>
