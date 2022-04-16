@@ -46,7 +46,7 @@
         </header>
         <main class="main_page">
             <nav class="main-page-cassettes">
-                <div class="main-list-cassettes" id = "blues_cas">
+                <div class="main-list-cassettes" id="rock00_dvd">
                     
                 </div>
             </nav>
@@ -61,15 +61,15 @@
                     </div>
                 </div>
             </div>
-        </footer>    
+        </footer>
 
         <script src="scripts/root.js"></script>
-        <script src="scripts/things.json"></script>
+        <script src="scripts/things.js"></script>
         <script>
             function render() {
                 let html_el = '';
                 CATALOG.forEach(({id, type, genre, name, img, price}) => {
-                    if (type == 'Cassette' && genre == 'Blues'){
+                    if (type == 'DVD' && genre == 'Rock00'){
                         html_el += `
                         <li class="main-list-cassettes-element">
                             <span class="main-list-cassettes-element-name">${name}</span>
@@ -83,9 +83,9 @@
                 const html = `
                 <ul class="main-list-cassettes-container">${html_el}</ul>
                 `;
-                ROOT_blues_cas.innerHTML = html;
+                ROOT_rock00_dvd.innerHTML = html;
             }
             render();
-        </script>
+        </script>    
     </body>
 </html>

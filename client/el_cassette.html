@@ -2,7 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <title>Прокат кассет и DVD</title>
         <link rel="icon" type="image/png" href="img/cassette_logo.png">
     </head>
@@ -18,7 +18,7 @@
                             </li>
                             <li><a href="cassettes.html"><span>КАССЕТЫ</span></a>
                             </li>
-                            <li><a href="dvds.html"><span>DVD</span></a></li>
+                            <li><a href="rock_cassette.html"><span>DVD</span></a></li>
                             </ul>
                         </div>
                         <div class="header_bar_right">
@@ -46,7 +46,7 @@
         </header>
         <main class="main_page">
             <nav class="main-page-cassettes">
-                <div class="main-list-cassettes" id="rap_cas">
+                <div class="main-list-cassettes" id="el_cas">
                     
                 </div>
             </nav>
@@ -54,21 +54,15 @@
 
         </main>
         <footer class="main_page_footer">
-            <div class="wrapper">
-                <div class="main_page_footer_grid">
-                    <div class="grid_item_footer">
-                        <h4>Полезные ссылки</h4>
-                    </div>
-                </div>
-            </div>
-        </footer>   
+            
+        </footer>    
         <script src="scripts/root.js"></script>
-        <script src="scripts/things.json"></script>
+        <script src="scripts/things.js"></script>
         <script>
             function render() {
                 let html_el = '';
                 CATALOG.forEach(({id, type, genre, name, img, price}) => {
-                    if (type == 'Cassette' && genre == 'Rap'){
+                    if (type == 'Cassette' && genre == 'El'){
                         html_el += `
                         <li class="main-list-cassettes-element">
                             <span class="main-list-cassettes-element-name">${name}</span>
@@ -82,11 +76,9 @@
                 const html = `
                 <ul class="main-list-cassettes-container">${html_el}</ul>
                 `;
-                ROOT_rap_cas.innerHTML = html;
+                ROOT_el_cas.innerHTML = html;
             }
             render();
         </script>
-
-       
     </body>
 </html>

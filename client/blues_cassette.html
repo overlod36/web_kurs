@@ -46,7 +46,7 @@
         </header>
         <main class="main_page">
             <nav class="main-page-cassettes">
-                <div class="main-list-cassettes" id = "rock90_cas_list">
+                <div class="main-list-cassettes" id = "blues_cas">
                     
                 </div>
             </nav>
@@ -61,46 +61,21 @@
                     </div>
                 </div>
             </div>
-        </footer>  
-        <script src="scripts/lcl_str.js"></script>
+        </footer>    
+
         <script src="scripts/root.js"></script>
-        <script src="scripts/things.json"></script>
+        <script src="scripts/things.js"></script>
         <script>
-            function set_storage(el, id) {
-                console.log(id);
-                const {push_good, goods} = storage.putGood(id);
-                if (push_good){
-                    el.classList.add('main-list-cassettes-element-btn-active');
-                    el.innerHTML = 'Удалить';
-                }
-                else{
-                    el.classList.remove('main-list-cassettes-element-btn-active');
-                    el.innerHTML = 'Добавить';
-                }
-            }
             function render() {
-                const goodsStore = storage.getGoods();
                 let html_el = '';
                 CATALOG.forEach(({id, type, genre, name, img, price}) => {
-                    let active_class = ''
-                    let active_text = ''
-
-                    if (goodsStore.indexOf(id) === -1) {
-                        active_class = 'main-list-cassettes-element-btn';
-                        active_text = 'Добавить';
-                    } 
-                    else {
-                        active_class = 'main-list-cassettes-element-btn-active';
-                        active_text = 'Удалить';
-                    }
-
-                    if (type == 'Cassette' && genre == 'Rock90'){
+                    if (type == 'Cassette' && genre == 'Blues'){
                         html_el += `
                         <li class="main-list-cassettes-element">
                             <span class="main-list-cassettes-element-name">${name}</span>
                             <img class="main-list-cassettes-element-img" src="${img}"/>
                             <span class="main-list-cassettes-element-price">${price}</span>
-                            <button class="${active_class}" onclick="set_storage(this, '${id}')">${active_text}</button>
+                            <button class="main-list-cassettes-element-btn">Добавить</button>
                         </li>
                         `;
                     }
@@ -108,9 +83,9 @@
                 const html = `
                 <ul class="main-list-cassettes-container">${html_el}</ul>
                 `;
-                ROOT_rock90_cas.innerHTML = html;
+                ROOT_blues_cas.innerHTML = html;
             }
             render();
-        </script>  
+        </script>
     </body>
 </html>
