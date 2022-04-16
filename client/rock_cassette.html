@@ -64,9 +64,10 @@
         </footer>  
         <script>
             var rend_elements = function(objs){
-                var html = $('<li class="main-list-cassettes-element">' + '<span class="main-list-cassettes-element-name">' + objs.name + '</span>' + '<img class="main-list-cassettes-element-img" src="' + objs.img_path + '"/>' + '<span class="main-list-cassettes-element-price">' + objs.price + '</span>' + '<button class="main-list-cassettes-element-btn">Добавить</button>' + '</li>');
-                $('.main-list-cassettes-container').append(html);
-
+                if (objs.genre == "Rock90" && objs.type == "Cassette"){
+                    var html = $('<li class="main-list-cassettes-element">' + '<span class="main-list-cassettes-element-name">' + objs.name + '</span>' + '<img class="main-list-cassettes-element-img" src="' + objs.img_path + '"/>' + '<span class="main-list-cassettes-element-price">' + objs.price + '</span>' + '<button class="main-list-cassettes-element-btn">Добавить</button>' + '</li>');
+                    $('.main-list-cassettes-container').append(html);
+                }
             }
 
             var main = function(objects){

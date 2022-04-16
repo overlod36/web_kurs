@@ -66,26 +66,31 @@
         <script src="scripts/root.js"></script>
         <script src="scripts/things.js"></script>
         <script>
-            function render() {
-                let html_el = '';
-                CATALOG.forEach(({id, type, genre, name, img, price}) => {
-                    if (type == 'Cassette' && genre == 'Blues'){
-                        html_el += `
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">${name}</span>
-                            <img class="main-list-cassettes-element-img" src="${img}"/>
-                            <span class="main-list-cassettes-element-price">${price}</span>
-                            <button class="main-list-cassettes-element-btn">Добавить</button>
-                        </li>
-                        `;
+            var rend_elements = function(objs){
+                if (objs.genre == "Blues" && objs.type == "Cassette"){
+                    var html = $('<li class="main-list-cassettes-element">' + '<span class="main-list-cassettes-element-name">' + objs.name + '</span>' + '<img class="main-list-cassettes-element-img" src="' + objs.img_path + '"/>' + '<span class="main-list-cassettes-element-price">' + objs.price + '</span>' + '<button class="main-list-cassettes-element-btn">Добавить</button>' + '</li>');
+                    $('.main-list-cassettes-container').append(html);
+                }
+            }
+
+            var main = function(objects){
+                "use strict";
+                $('.main-list-cassettes').append('<ul class="main-list-cassettes-container"></ul>');
+
+                $.getJSON("goods.json", function(objects){
+                    for (var i = objects.length-1; i >= 0; i--){
+                        rend_elements(objects[i]);
                     }
                 });
-                const html = `
-                <ul class="main-list-cassettes-container">${html_el}</ul>
-                `;
-                ROOT_blues_cas.innerHTML = html;
+
+
             }
-            render();
+
+            $(document).ready(function () {
+            $.getJSON("/goods.json", function (objects) {
+                main(objects);
+            });
+        });
         </script>
     </body>
 </html>
