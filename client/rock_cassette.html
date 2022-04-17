@@ -45,13 +45,17 @@
             </div>
         </header>
         <main class="main_page">
+            <div class="popup-bg">
+              <div class="popup">
+                <a class="close-popup-a"><img class="close-popup" src="img/close.png" alt=""></a>
+
+              </div>
+            </div>
             <nav class="main-page-cassettes">
                 <div class="main-list-cassettes" id = "rock90_cas_list">
                     
                 </div>
             </nav>
-
-
         </main>
         <footer class="main_page_footer">
             <div class="wrapper">
@@ -63,6 +67,16 @@
             </div>
         </footer>  
         <script>
+
+            $('.main-list-cassettes').on('click', '.img_win' , function(){
+                $('.popup-bg').fadeIn(800);
+                $('html').addClass('no-scroll');
+            });
+
+            $('.close-popup-a').click(function(){
+                $('.popup-bg').fadeOut(800);
+                $('html').removeClass('no-scroll');
+            });            
 
             $("#btn_1").click(function(){
                 $('.main-list-cassettes').empty();
@@ -83,7 +97,7 @@
 
             var rend_elements = function(objs){
                 if (objs.genre == "Rock90" && objs.type == "Cassette"){
-                    var html = $('<li class="main-list-cassettes-element">' + '<span class="main-list-cassettes-element-name">' + objs.name + '</span>' + '<img class="main-list-cassettes-element-img" src="' + objs.img_path + '"/>' + '<span class="main-list-cassettes-element-price">' + objs.price + '</span>' + '<button class="main-list-cassettes-element-btn">Добавить</button>' + '</li>');
+                    var html = $('<li class="main-list-cassettes-element">' + '<span class="main-list-cassettes-element-name">' + objs.name + '</span>' + '<a class="img_win">' +'<img class="main-list-cassettes-element-img" src="' + objs.img_path + '"/>' + '</a>' + '<span class="main-list-cassettes-element-price">' + objs.price + '</span>' + '<button class="main-list-cassettes-element-btn">Добавить</button>' + '</li>');
                     $('.main-list-cassettes-container').append(html);
                 }
             }
