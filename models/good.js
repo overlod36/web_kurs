@@ -9,5 +9,5 @@ var good_schema = mongoose.Schema({
 	track_list: [String]
 });
 
-var goods = mongoose.model("good", good_schema);
+var goods = mongoose.model("good", good_schema, "goods");
 module.exports = goods;

@@ -1,6 +1,7 @@
 var express = require("express"),
 http = require("http"),
 mongoose = require("mongoose"),
+GoodsController = require("./controllers/goods_controller.js"),
 app = express();
 
 app.use(express.static(__dirname + "/client"));
@@ -16,22 +17,7 @@ mongoose.connect('mongodb://localhost/w_kurs', {
 		console.log(Error, err.message);
 	});
 
-var good_schema = mongoose.Schema({
-	type: String,
-	genre: String,
-	group: String,
-	img_path: String,
-	price: String,
-	track_list: [String]
-});
-
-var goods = mongoose.model("good", good_schema, "goods");
 
 http.createServer(app).listen(5000);
 
-app.get("/goods.json", function (req, res) {
-	goods.find({}, function (err, toDos) {
-		console.log(toDos);
-		res.json(toDos);
-	});
-});
+app.get('/goods.json', GoodsController.good_list);
