@@ -32,9 +32,9 @@
 
 
                             <div class="header_bar_search">
-                                <form action="/search" method="get" class="header_bar_search_form" role="search">
-                                    <input type="search" name="q" value="" class="header_bar_search_input">
-                                    <button type="submit" class="header_bar_search_btn">
+                                <form class="header_bar_search_form">
+                                    <input value="" class="header_bar_search_input">
+                                    <button type="button" class="header_bar_search_btn" id="btn_1">
                                         <img src="img/loupe_small.png"/>
                                     </button>
                                 </form>
@@ -63,6 +63,24 @@
             </div>
         </footer>  
         <script>
+
+            $("#btn_1").click(function(){
+                $('.main-list-cassettes').empty();
+                var arr = [];
+                var request = $(".header_bar_search_input").val();
+                if (request != ""){
+                    $.getJSON("goods.json", function (objects) {
+                        for (var i = objects.length-1; i >= 0; i--){
+                            if (objects[i].group == request){
+                                arr.push(objects[i]);
+                                console.log(arr);
+                            }
+                        }
+                        main(arr);   
+                    });
+                }
+            });
+
             var rend_elements = function(objs){
                 if (objs.genre == "Rock90" && objs.type == "Cassette"){
                     var html = $('<li class="main-list-cassettes-element">' + '<span class="main-list-cassettes-element-name">' + objs.name + '</span>' + '<img class="main-list-cassettes-element-img" src="' + objs.img_path + '"/>' + '<span class="main-list-cassettes-element-price">' + objs.price + '</span>' + '<button class="main-list-cassettes-element-btn">Добавить</button>' + '</li>');
@@ -74,20 +92,16 @@
                 "use strict";
                 $('.main-list-cassettes').append('<ul class="main-list-cassettes-container"></ul>');
 
-                $.getJSON("goods.json", function(objects){
-                    for (var i = objects.length-1; i >= 0; i--){
-                        rend_elements(objects[i]);
-                    }
-                });
-
-
+                for (var i = objects.length-1; i >= 0; i--){
+                    rend_elements(objects[i]);
+                }
             }
-
-            $(document).ready(function () {
-            $.getJSON("/goods.json", function (objects) {
-                main(objects);
+            
+           $(document).ready(function(){
+                $.getJSON("goods.json", function (objects) {
+                    main(objects);   
+                });
             });
-        });
         </script>  
     </body>
 </html>

@@ -7,4 +7,5 @@ GoodsController.good_list = function(req, res){
 	});
 };
 
+
 module.exports = GoodsController;
