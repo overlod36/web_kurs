@@ -85,15 +85,17 @@
                             console.log(object.name);
                         }
                     }
-                    var html = $('<span class="name_win">' + object.name + '</span>' + '<span class="group_win">' + object.group + '</span>' + '<img class="cover_win" src="' + object.img_path + '"/>');
+                    var html = $('<img class="cover_win" src="' + object.img_path + '"/>' + '<span class="name_win">' + object.name + '</span>' + '<span class="group_win">' + object.group + '</span>');
                     var html_l = $('<div class="track_list">' + '</div>');
                     $('.info').append(html);
                     $('.addit_info').append(html_l);
+                    $('.track_list').append($('<span class="beg_tracks">Треклист</span>'));
                     $('.track_list').append($('<ul class="tracks">' + '</ul>'));
                     
                     for (var i = 0; i < object.track_list.length; i++){
+                        var j = i + 1;
                         console.log(object.track_list[i]);
-                        var html_el = $('<li class="track">' + object.track_list[i] + '</li>');
+                        var html_el = $('<li class="track">' + String(j) + ') ' +  object.track_list[i] + '</li>');
                         $('.tracks').append(html_el);
                     }
                 });
