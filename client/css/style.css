@@ -243,6 +243,7 @@ footer {
     transform: translate(-50%, -50%);
     padding: 30px;
     padding-top: 60px;
+    display: grid-template-columns;
 }
 
 .popup .info .cover_win{
@@ -250,7 +251,7 @@ footer {
     padding: 10px 10px 10px 10px;
 }
 
-.popup .info {
+.info {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -261,4 +262,11 @@ footer {
 
 .info span {
     padding: 10px 10px 10px 10px;
+}
+
+.alb {
+    display: grid;
+    grip-gap: 45px;
+    /*grid-template-columns: 275px 275px 275px 275px 275px;*/
+    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
 }

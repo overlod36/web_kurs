@@ -48,8 +48,10 @@
             <div class="popup-bg">
               <div class="popup">
                 <a class="close-popup-a"><img class="close-popup" src="img/close.png" alt=""></a>
-                <div class="info"></div>
-                <div class="addit_info"></div>
+                <div class="alb">
+                    <div class="info"></div>
+                    <div class="addit_info"></div>
+                </div>
               </div>
             </div>
             <nav class="main-page-cassettes">
@@ -71,19 +73,29 @@
 
             $('.main-list-cassettes').on('click', '.img_win' , function(){
                 $('.info').empty();
+                $('.addit_info').empty();
                 $('.popup-bg').fadeIn(800);
                 $('html').addClass('no-scroll');
                 var alb_name = $(this).prev().text();
                 var object;
-                console.log(alb_name);
                 $.getJSON("goods.json", function(objects){
                     for (var i = objects.length-1; i >= 0; i--){
                         if (objects[i].name == alb_name){
                             object = objects[i];
+                            console.log(object.name);
                         }
                     }
                     var html = $('<span class="name_win">' + object.name + '</span>' + '<span class="group_win">' + object.group + '</span>' + '<img class="cover_win" src="' + object.img_path + '"/>');
+                    var html_l = $('<div class="track_list">' + '</div>');
                     $('.info').append(html);
+                    $('.addit_info').append(html_l);
+                    $('.track_list').append($('<ul class="tracks">' + '</ul>'));
+                    
+                    for (var i = 0; i < object.track_list.length; i++){
+                        console.log(object.track_list[i]);
+                        var html_el = $('<li class="track">' + object.track_list[i] + '</li>');
+                        $('.tracks').append(html_el);
+                    }
                 });
 
             });
