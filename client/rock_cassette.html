@@ -48,7 +48,7 @@
             <div class="popup-bg">
               <div class="popup">
                 <a class="close-popup-a"><img class="close-popup" src="img/close.png" alt=""></a>
-
+                <div class="info"></div>
               </div>
             </div>
             <nav class="main-page-cassettes">
@@ -69,8 +69,22 @@
         <script>
 
             $('.main-list-cassettes').on('click', '.img_win' , function(){
+                $('.info').empty();
                 $('.popup-bg').fadeIn(800);
                 $('html').addClass('no-scroll');
+                var alb_name = $(this).prev().text();
+                var object;
+                console.log(alb_name);
+                $.getJSON("goods.json", function(objects){
+                    for (var i = objects.length-1; i >= 0; i--){
+                        if (objects[i].name == alb_name){
+                            object = objects[i];
+                        }
+                    }
+                    var html = $('<span class="name_win">' + object.name + '</span>' + '<span class="group_win">' + object.group + '</span>' + '<img class="cover_win" src="' + object.img_path + '"/>');
+                    $('.info').append(html);
+                });
+
             });
 
             $('.close-popup-a').click(function(){
