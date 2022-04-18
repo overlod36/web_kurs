@@ -295,3 +295,26 @@ footer {
 .alb_img{
     width: 350px;
 }
+
+.dvd_track{
+    list-style: none;
+    margin-bottom: 0.1em;
+}
+
+.popup .info .dvd_cover_win{
+    width: 350px;
+    padding: 10px 10px 10px 10px;
+}
+
+.dvd_alb_img{
+    width: 450px;
+}
+
+#dvd_info{
+    padding-left: 50px;
+}
+
+#dvd_addit_info{
+    display: grid;
+    grid-template-columns: 470px 300px;
+}
