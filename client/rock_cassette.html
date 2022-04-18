@@ -87,8 +87,10 @@
                     }
                     var html = $('<img class="cover_win" src="' + object.img_path + '"/>' + '<span class="name_win">' + object.name + '</span>' + '<span class="group_win">' + object.group + '</span>');
                     var html_l = $('<div class="track_list">' + '</div>');
+                    var html_r = $('<div class="img_list">' + '</div');
                     $('.info').append(html);
                     $('.addit_info').append(html_l);
+                    $('.addit_info').append(html_r);
                     $('.track_list').append($('<span class="beg_tracks">Треклист</span>'));
                     $('.track_list').append($('<ul class="tracks">' + '</ul>'));
                     
@@ -98,6 +100,12 @@
                         var html_el = $('<li class="track">' + String(j) + ') ' +  object.track_list[i] + '</li>');
                         $('.tracks').append(html_el);
                     }
+                    
+                    for (var i = 0; i < object.img_list.length; i++){
+                        var html_el = $('<img class="alb_img" src = "' + object.img_list[i] + '"' + '/>');
+                        $('.img_list').append(html_el);
+                    }
+
                 });
 
             });

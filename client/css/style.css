@@ -266,12 +266,12 @@ footer {
 
 .alb {
     display: grid;
-    grid-template-columns: 300px 300px;
+    grid-template-columns: 430px 300px;
 }
 
 .track{
     list-style: none;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
 }
 
 .beg_tracks{
@@ -285,4 +285,13 @@ footer {
 
 .group_win{
     font-weight: bold;
+}
+
+.addit_info{
+    display: grid;
+    grid-template-columns: 570px 334px;
+}
+
+.alb_img{
+    width: 350px;
 }
