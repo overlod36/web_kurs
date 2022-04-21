@@ -77,15 +77,8 @@
                 $('.popup-bg').fadeIn(800);
                 $('html').addClass('no-scroll');
                 var alb_name = $(this).prev().text();
-                var object;
-                $.getJSON("goods.json", function(objects){
-                    for (var i = objects.length-1; i >= 0; i--){
-                        if (objects[i].name == alb_name){
-                            object = objects[i];
-                            console.log(object.name);
-                        }
-                    }
-                    var html = $('<img class="cover_win" src="' + object.img_path + '"/>' + '<span class="name_win">' + object.name + '</span>' + '<span class="group_win">' + object.group + '</span>');
+                $.get("/goods_show/" + alb_name, function(res){
+                    var html = $('<img class="cover_win" src="' + res[0].img_path + '"/>' + '<span class="name_win">' + res[0].name + '</span>' + '<span class="group_win">' + res[0].group + '</span>');
                     var html_l = $('<div class="track_list">' + '</div>');
                     var html_r = $('<div class="img_list">' + '</div');
                     $('.info').append(html);
@@ -94,15 +87,15 @@
                     $('.track_list').append($('<span class="beg_tracks">Треклист</span>'));
                     $('.track_list').append($('<ul class="tracks">' + '</ul>'));
                     
-                    for (var i = 0; i < object.track_list.length; i++){
+                    for (var i = 0; i < res[0].track_list.length; i++){
                         var j = i + 1;
-                        console.log(object.track_list[i]);
-                        var html_el = $('<li class="track">' + String(j) + ') ' +  object.track_list[i] + '</li>');
+                        console.log(res[0].track_list[i]);
+                        var html_el = $('<li class="track">' + String(j) + ') ' +  res[0].track_list[i] + '</li>');
                         $('.tracks').append(html_el);
                     }
                     
-                    for (var i = 0; i < object.img_list.length; i++){
-                        var html_el = $('<img class="alb_img" src = "' + object.img_list[i] + '"' + '/>');
+                    for (var i = 0; i < res[0].img_list.length; i++){
+                        var html_el = $('<img class="alb_img" src = "' + res[0].img_list[i] + '"' + '/>');
                         $('.img_list').append(html_el);
                     }
 
@@ -120,14 +113,16 @@
                 var arr = [];
                 var request = $(".header_bar_search_input").val();
                 if (request != ""){
-                    $.getJSON("goods.json", function (objects) {
-                        for (var i = objects.length-1; i >= 0; i--){
-                            if (objects[i].group == request){
-                                arr.push(objects[i]);
-                                console.log(arr);
+                    $.get("/goods_search/" + request, function(res){
+                        if (res.length > 0){
+                            for (var i = res.length-1; i >= 0; i--){
+                                if (res[i].group == request){
+                                    arr.push(res[i]);
+                                    console.log(arr);
+                                }
                             }
+                            main(arr); 
                         }
-                        main(arr);   
                     });
                 }
             });
