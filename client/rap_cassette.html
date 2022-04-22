@@ -45,6 +45,17 @@
             </div>
         </header>
         <main class="main_page">
+
+            <div class="popup-bg">
+              <div class="popup">
+                <a class="close-popup-a"><img class="close-popup" src="img/close.png" alt=""></a>
+                <div class="alb">
+                    <div class="info"></div>
+                    <div class="addit_info"></div>
+                </div>
+              </div>
+            </div>
+
             <nav class="main-page-cassettes">
                 <div class="main-list-cassettes" id="rap_cas">
                     
@@ -65,26 +76,85 @@
         <script src="scripts/root.js"></script>
         <script src="scripts/things.js"></script>
         <script>
-            function render() {
-                let html_el = '';
-                CATALOG.forEach(({id, type, genre, name, img, price}) => {
-                    if (type == 'Cassette' && genre == 'Rap'){
-                        html_el += `
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">${name}</span>
-                            <img class="main-list-cassettes-element-img" src="${img}"/>
-                            <span class="main-list-cassettes-element-price">${price}</span>
-                            <button class="main-list-cassettes-element-btn">Добавить</button>
-                        </li>
-                        `;
+            
+            $('.main-list-cassettes').on('click', '.img_win' , function(){
+                $('.info').empty();
+                $('.addit_info').empty();
+                $('.popup-bg').fadeIn(800);
+                $('html').addClass('no-scroll');
+                var alb_name = $(this).prev().text();
+                $.get("/goods_show/" + alb_name, function(res){
+                    var html = $('<img class="cover_win" src="' + res[0].img_path + '"/>' + '<span class="name_win">' + res[0].name + '</span>' + '<span class="group_win">' + res[0].group + '</span>');
+                    var html_l = $('<div class="track_list">' + '</div>');
+                    var html_r = $('<div class="img_list">' + '</div');
+                    $('.info').append(html);
+                    $('.addit_info').append(html_l);
+                    $('.addit_info').append(html_r);
+                    $('.track_list').append($('<span class="beg_tracks">Треклист</span>'));
+                    $('.track_list').append($('<ul class="tracks">' + '</ul>'));
+                    
+                    for (var i = 0; i < res[0].track_list.length; i++){
+                        var j = i + 1;
+                        console.log(res[0].track_list[i]);
+                        var html_el = $('<li class="track">' + String(j) + ') ' +  res[0].track_list[i] + '</li>');
+                        $('.tracks').append(html_el);
                     }
+                    
+                    for (var i = 0; i < res[0].img_list.length; i++){
+                        var html_el = $('<img class="alb_img" src = "' + res[0].img_list[i] + '"' + '/>');
+                        $('.img_list').append(html_el);
+                    }
+
                 });
-                const html = `
-                <ul class="main-list-cassettes-container">${html_el}</ul>
-                `;
-                ROOT_rap_cas.innerHTML = html;
+
+            });
+
+            $('.close-popup-a').click(function(){
+                $('.popup-bg').fadeOut(800);
+                $('html').removeClass('no-scroll');
+            });            
+
+            $("#btn_1").click(function(){
+                $('.main-list-cassettes').empty();
+                var arr = [];
+                var request = $(".header_bar_search_input").val();
+                if (request != ""){
+                    $.get("/goods_search/" + request, function(res){
+                        if (res.length > 0){
+                            for (var i = res.length-1; i >= 0; i--){
+                                if (res[i].group == request){
+                                    arr.push(res[i]);
+                                    console.log(arr);
+                                }
+                            }
+                            main(arr); 
+                        }
+                    });
+                }
+            });
+
+            var rend_elements = function(objs){
+                if (objs.genre == "Rap" && objs.type == "Cassette"){
+                    var html = $('<li class="main-list-cassettes-element">' + '<span class="main-list-cassettes-element-name">' + objs.name + '</span>' + '<a class="img_win">' +'<img class="main-list-cassettes-element-img" src="' + objs.img_path + '"/>' + '</a>' + '<span class="main-list-cassettes-element-price">' + objs.price + '</span>' + '<button class="main-list-cassettes-element-btn">Добавить</button>' + '</li>');
+                    $('.main-list-cassettes-container').append(html);
+                }
             }
-            render();
+
+            var main = function(objects){
+                "use strict";
+                $('.main-list-cassettes').append('<ul class="main-list-cassettes-container"></ul>');
+
+                for (var i = objects.length-1; i >= 0; i--){
+                    rend_elements(objects[i]);
+                }
+            }
+            
+           $(document).ready(function(){
+                $.getJSON("goods.json", function (objects) {
+                    main(objects);   
+                });
+            });
+
         </script>
 
        
