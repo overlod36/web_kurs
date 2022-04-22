@@ -12,7 +12,7 @@ GoodsController.search = function(req, res){
 	console.log("Клиент ищет альбомы группы -> " + group);
 	goods.find({"group": group}, function(err, result) {
 		if (err != null){
-			console.log("Error! -> " + err);
+			console.log("Ошибка! -> " + err);
 			res.status(500).json(err);
 		} else{
 			if (result.length > 0){
@@ -31,7 +31,7 @@ GoodsController.show_alb = function(req, res){
 	goods.find({"name": name}, function(err, result){
 		//console.log("-> " + result);
 		if (err != null){
-			console.log("Error! -> " + err);
+			console.log("Ошибка! -> " + err);
 			res.status(500).json(err);
 		} else {
 			if (result.length > 0){
