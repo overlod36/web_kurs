@@ -23,14 +23,14 @@ mongoose.connect('mongodb://localhost/w_kurs', {
 http.createServer(app).listen(5000);
 
 app.get('/goods.json', GoodsController.good_list);
-app.get('/goods_search/:group', GoodsController.search);
 app.get('/goods_show/:name', GoodsController.show_alb);
+app.get('/goods_search/:group', GoodsController.search);
 
 
 app.get('/users.json', UsersController.index);
 app.get('/users/:login', UsersController.show);
 app.get('/users/:login/:page', UsersController.show_page);
-app.get('/users/:login/:page/goods.json', UsersController.show_json)
+app.get('/users/:login/:page/goods.json', UsersController.show_json);
 app.post('/users', UsersController.create_user);
 app.post('/users', UsersController.create_mod);
 app.delete('/users/:login', UsersController.remove);
