@@ -332,6 +332,23 @@ main .authorization {
     grid-row-gap: 10px;
 }
 
+main .admin_tool {
+    max-width: 300px;
+    padding-top: 130px;
+    padding-bottom: 115px;
+    margin: auto;
+    border-radius: 5px;
+    /*border-radius: 5px 5px 0 0; */
+    display: grid;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+
+main .admin_tool p {
+    padding-left: 40px;  
+    padding-bottom: 0px;
+    font-size:20px;
+}
 
 main .authorization p {
     padding-left: 40px;  

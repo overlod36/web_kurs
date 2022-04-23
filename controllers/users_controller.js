@@ -42,7 +42,12 @@ UsersController.show = function(req, res){
 		if (err) {
 			console.log(err);
 		} else if (result.length !== 0) {
-			res.sendfile('./client/main.html');
+			if (result[0].pos == 'Пользователь'){
+				res.sendfile('./client/main.html');
+			}
+			else if (result[0].pos == 'Администратор'){
+				res.sendfile('./client/admin_page.html');
+			}
 		} else {
 		  res.send(404);
 		}
