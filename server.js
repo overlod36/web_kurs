@@ -29,9 +29,11 @@ app.get('/goods_show/:name', GoodsController.show_alb);
 
 app.get('/users.json', UsersController.index);
 app.get('/users/:login', UsersController.show);
+app.get('/users/:login/:page', UsersController.show_page);
 app.post('/users', UsersController.create_user);
 app.post('/users', UsersController.create_mod);
 app.delete('/users/:login', UsersController.remove);
 
 app.get('/categories.json', CategoriesController.categorie_list);
 app.get('/categories/:type', CategoriesController.categories_show);
+app.get('/categories/cassette/:name', CategoriesController.cas_show);

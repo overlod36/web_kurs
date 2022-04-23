@@ -49,6 +49,21 @@ UsersController.show = function(req, res){
 	});
 };
 
+UsersController.show_page = function(req, res){
+	var log = req.params.login;
+	var page = req.params.page;
+	console.log(log + ' ' + page);
+	users.find({'login': log}, function(err, result){
+		if (err) {
+			console.log(err);
+		} else if (result.length !== 0) {
+			res.sendfile('./client/' + page);
+		} else {
+		  res.send(404);
+		}
+	});
+}
+
 
 UsersController.create_user = function(req, res) {
 	var login = req.params.login;

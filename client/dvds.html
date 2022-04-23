@@ -1,10 +1,10 @@
 <!doctype html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <title>Прокат кассет и DVD</title>
-        <link rel="icon" type="image/png" href="img/cassette_logo.png">
+        <link rel="icon" type="image/png" href="/img/cassette_logo.png">
     </head>
     <body>
         <header>
@@ -24,7 +24,7 @@
                         <div class="header_bar_right">
                             <div class="header_bar_cart">
                                 <a href="/cart" class="cart-but">
-                                <span class="cart-icon"><img src="img/cart.png" /></span>
+                                <span class="cart-icon"><img src="/img/cart.png" /></span>
                                  Корзина 
                                 <span class="cart-count">0</span>
                                 </a>
@@ -35,7 +35,7 @@
                                 <form action="/search" method="get" class="header_bar_search_form" role="search">
                                     <input type="search" name="q" value="" class="header_bar_search_input">
                                     <button type="submit" class="header_bar_search_btn">
-                                        <img src="img/loupe_small.png"/>
+                                        <img src="/img/loupe_small.png"/>
                                     </button>
                                 </form>
                             </div> 
@@ -70,7 +70,7 @@
                 $('.main-list-cassettes').append('<ul class="main-list-cassettes-container"></ul>');
                 $.get("/categories/DVD", function(res){
                     for (var i = 0; i < res.length; i++){
-                        var html_el = $('<li class="main-list-cassettes-element">' + '<span class="main-list-cassettes-element-name">' + res[i].name + '</span>' + '<a href="' + res[i].link + '">' + '<img class="main-list-cassettes-element-img" src="' + res[i].img_path + '"/>' + '</a>' + '</li>');
+                        var html_el = $('<li class="main-list-cassettes-element">' + '<span class="main-list-cassettes-element-name">' + res[i].name + '</span>' + '<a href="/' + res[i].link + '">' + '<img class="main-list-cassettes-element-img" src="/' + res[i].img_path + '"/>' + '</a>' + '</li>');
                         $(".main-list-cassettes-container").append(html_el);
                     }
                 });

@@ -53,7 +53,8 @@ footer {
 }
 
 .header_bar_right{
-	display: table-cell;
+	display: inline-flex;
+    padding-top: 25px;
     vertical-align: middle;
     float: none;
 }
@@ -359,4 +360,13 @@ input{
 
 .li_logo{
     vertical-align: middle;
+}
+
+.header_quit a{
+    text-decoration: none;
+}
+
+.header_quit{
+    padding-top: 5px;
+    padding-right: 15px;
 }
