@@ -3,6 +3,7 @@ http = require("http"),
 mongoose = require("mongoose"),
 GoodsController = require("./controllers/goods_controller.js"),
 UsersController = require("./controllers/users_controller.js"),
+CategoriesController = require("./controllers/categories_controller.js")
 app = express();
 
 app.use(express.static(__dirname + "/client"));
@@ -30,3 +31,6 @@ app.get('/users.json', UsersController.index);
 app.post('/users', UsersController.create_user);
 app.post('/users', UsersController.create_mod);
 app.delete('/users/:login', UsersController.remove);
+
+app.get('/categories.json', CategoriesController.categorie_list);
+app.get('/categories/:type', CategoriesController.categories_show);

@@ -47,6 +47,7 @@
         <main class="main_page">
             <nav class="main-page-cassettes">
                 <div class="main-list-cassettes">
+                    <!--
                     <ul class="main-list-cassettes-container">
                         <li class="main-list-cassettes-element">
                             <span class="main-list-cassettes-element-name">Рок 90-x</span>
@@ -65,6 +66,7 @@
                             <a href="blues_cassette.html"><img class="main-list-cassettes-element-img" src="img/blues.jpg"/></a>
                         </li>
                     </ul>
+                -->
                 </div>
             </nav>
 
@@ -78,7 +80,28 @@
                     </div>
                 </div>
             </div>
-        </footer>    
+        </footer> 
+
+        <script>
+            
+            var main = function(){
+                "use strict";
+                $('.main-list-cassettes').append('<ul class="main-list-cassettes-container"></ul>');
+                $.get("/categories/cassette", function(res){
+                    for (var i = 0; i < res.length; i++){
+                        var html_el = $('<li class="main-list-cassettes-element">' + '<span class="main-list-cassettes-element-name">' + res[i].name + '</span>' + '<a href="' + res[i].link + '">' + '<img class="main-list-cassettes-element-img" src="' + res[i].img_path + '"/>' + '</a>' + '</li>');
+                        $(".main-list-cassettes-container").append(html_el);
+                    }
+                });
+
+            }
+            $(document).ready(function(){
+                main();
+            });
+
+        </script>
+
+
     </body>
 </html>
 
