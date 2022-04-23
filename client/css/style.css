@@ -349,6 +349,10 @@ main .authorization .input_login {
     border-radius: 8px;
 }
 
+input{
+    text-align: center;
+}
+
 .logo {
     width: 80px;
 }

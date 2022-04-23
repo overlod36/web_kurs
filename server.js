@@ -28,6 +28,7 @@ app.get('/goods_show/:name', GoodsController.show_alb);
 
 
 app.get('/users.json', UsersController.index);
+app.get('/users/:login', UsersController.show);
 app.post('/users', UsersController.create_user);
 app.post('/users', UsersController.create_mod);
 app.delete('/users/:login', UsersController.remove);

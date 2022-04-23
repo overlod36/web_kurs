@@ -45,6 +45,28 @@
                     </div>
                 </div>
             </div>
-        </footer>    
+        </footer>
+
+        <script>
+            var main = function(){
+                "use strict";
+                $("#login_button").on("click", function() {
+                    var login = $(".input_to").val();
+                    if (login != ""){
+                        $.ajax({
+                            'url': '/users/' + login,
+                            'type': 'GET'
+                        }).done(function(response) {
+                            window.location.replace('users/' + login + '/');
+                        }).fail(function(jqXHR, textStatus, error) {
+                            console.log(error);
+                            alert("Ошибка!" + jqXHR.status + " " + jqXHR.textStatus);   
+                        });
+                    }
+                });
+            }
+            main();
+        </script>
+
     </body>
 </html>

@@ -35,6 +35,21 @@ UsersController.index = function(req, res){
 	});
 };
 
+UsersController.show = function(req, res){
+	var log = req.params.login;
+	console.log("Пользователь " + log + " заходит в систему!");
+	users.find({'login': log}, function(err, result){
+		if (err) {
+			console.log(err);
+		} else if (result.length !== 0) {
+			res.sendfile('./client/cassettes.html');
+		} else {
+		  res.send(404);
+		}
+	});
+};
+
+
 UsersController.create_user = function(req, res) {
 	var login = req.params.login;
 	console.log('Администратор добавляет рядового пользователя -> ' + login);
