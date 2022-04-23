@@ -11,10 +11,10 @@ CategoriesController.categorie_list = function(req, res){
 CategoriesController.categories_show = function(req, res){
 	var cat = req.params.type;
 	if (cat == "cassette"){
-		console.log("Клиент перешел в разделы кассет!");
+		console.log("Клиент перешел в раздел кассет!");
 	}
 	else if (cat == "DVD"){
-		console.log("Клиент перешел в разделы DVD!");
+		console.log("Клиент перешел в раздел DVD!");
 	}
 	categories.find({'type': cat}, function(err, result){
 		if (err != null){

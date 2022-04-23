@@ -47,24 +47,7 @@
         <main class="main_page">
             <nav class="main-page-cassettes">
                 <div class="main-list-cassettes">
-                    <ul class="main-list-cassettes-container">
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">Русский рок</span>
-                            <a href="russian_rock_dvd.html"><img class="main-list-cassettes-element-img" src="img/rockrus.jpg"/></a>
-                        </li>
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">Блюз</span>
-                            <a href="blues_dvd.html"><img class="main-list-cassettes-element-img" src="img/bluesy.jpg"/></a>
-                        </li>
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">Рок 00-х</span>
-                            <a href="rock_dvd.html"><img class="main-list-cassettes-element-img" src="img/rock00.jpg"/></a>
-                        </li>
-                        <li class="main-list-cassettes-element">
-                            <span class="main-list-cassettes-element-name">Что-то</span>
-                            <a href="blues_cassette.html"><img class="main-list-cassettes-element-img" src="img/blues.jpg"/></a>
-                        </li>
-                    </ul>
+                    
                 </div>
             </nav>
 
@@ -79,6 +62,25 @@
                 </div>
             </div>
         </footer>    
+
+        <script>
+            
+            var main = function(){
+                "use strict";
+                $('.main-list-cassettes').append('<ul class="main-list-cassettes-container"></ul>');
+                $.get("/categories/DVD", function(res){
+                    for (var i = 0; i < res.length; i++){
+                        var html_el = $('<li class="main-list-cassettes-element">' + '<span class="main-list-cassettes-element-name">' + res[i].name + '</span>' + '<a href="' + res[i].link + '">' + '<img class="main-list-cassettes-element-img" src="' + res[i].img_path + '"/>' + '</a>' + '</li>');
+                        $(".main-list-cassettes-container").append(html_el);
+                    }
+                });
+
+            }
+            $(document).ready(function(){
+                main();
+            });
+
+        </script>
     </body>
 </html>
 
