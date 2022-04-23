@@ -76,7 +76,7 @@
                 $('.main-list-cassettes').append('<ul class="main-list-cassettes-container"></ul>');
                 $.get("/categories/cassette", function(res){
                     for (var i = 0; i < res.length; i++){
-                        var html_el = $('<li class="main-list-cassettes-element">' + '<span class="main-list-cassettes-element-name">' + res[i].name + '</span>' + '<a class="link_to_cat" href="' + res[i].link + '">' + '<img class="main-list-cassettes-element-img" src="/' + res[i].img_path + '"/>' + '</a>' + '</li>');
+                        var html_el = $('<li class="main-list-cassettes-element">' + '<span class="main-list-cassettes-element-name">' + res[i].name + '</span>' + '<a href="' + res[i].link + '">' + '<img class="main-list-cassettes-element-img" src="/' + res[i].img_path + '"/>' + '</a>' + '</li>');
                         $(".main-list-cassettes-container").append(html_el);
                     }
                 });

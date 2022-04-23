@@ -149,6 +149,8 @@
                 var name = list[list.length - 2];
                 var page = list[list.length - 1];
 
+                console.log(name + " " + page);
+
                 $.get('/users/' + name + '/' + page + '/goods.json', function(res){
                     for (var i = res.length-1; i >= 0; i--){
                         rend_elements(res[i]);

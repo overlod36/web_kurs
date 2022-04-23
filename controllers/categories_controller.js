@@ -49,4 +49,22 @@ CategoriesController.cas_show = function(req, res){
 	});
 }
 
+CategoriesController.dvd_show = function(req, res){
+	var name = req.params.name;
+	console.log("Переход в DVD категорию -> " + name);
+	categories.find({'type': 'DVD', 'name': name}, function(err, result){
+		if (err != null){
+			console.log("Ошибка! -> " + err);
+			res.status(500).json(err);
+		} else {
+			if (result.length > 0){
+				res.status(200).json(result);
+			}
+			else{
+				res.json(result);
+			}
+		}
+	});
+}
+
 module.exports = CategoriesController;

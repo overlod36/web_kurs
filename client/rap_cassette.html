@@ -1,10 +1,10 @@
 <!doctype html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>   
         <title>Прокат кассет и DVD</title>
-        <link rel="icon" type="image/png" href="img/cassette_logo.png">
+        <link rel="icon" type="image/png" href="/img/cassette_logo.png">
     </head>
     <body>
         <header>
@@ -22,9 +22,16 @@
                             </ul>
                         </div>
                         <div class="header_bar_right">
+
+                            <div class="header_quit">
+                                <nav>
+                                    <a href="/index.html">Выход</a>
+                                </nav>
+                            </div>
+
                             <div class="header_bar_cart">
                                 <a href="/cart" class="cart-but">
-                                <span class="cart-icon"><img src="img/cart.png" /></span>
+                                <span class="cart-icon"><img src="/img/cart.png" /></span>
                                  Корзина 
                                 <span class="cart-count">0</span>
                                 </a>
@@ -35,7 +42,7 @@
                                 <form action="/search" method="get" class="header_bar_search_form" role="search">
                                     <input type="search" name="q" value="" class="header_bar_search_input">
                                     <button type="submit" class="header_bar_search_btn">
-                                        <img src="img/loupe_small.png"/>
+                                        <img src="/img/loupe_small.png"/>
                                     </button>
                                 </form>
                             </div> 
@@ -48,7 +55,7 @@
 
             <div class="popup-bg">
               <div class="popup">
-                <a class="close-popup-a"><img class="close-popup" src="img/close.png" alt=""></a>
+                <a class="close-popup-a"><img class="close-popup" src="/img/close.png" alt=""></a>
                 <div class="alb">
                     <div class="info"></div>
                     <div class="addit_info"></div>
@@ -73,8 +80,6 @@
                 </div>
             </div>
         </footer>   
-        <script src="scripts/root.js"></script>
-        <script src="scripts/things.js"></script>
         <script>
             
             $('.main-list-cassettes').on('click', '.img_win' , function(){
@@ -84,7 +89,7 @@
                 $('html').addClass('no-scroll');
                 var alb_name = $(this).prev().text();
                 $.get("/goods_show/" + alb_name, function(res){
-                    var html = $('<img class="cover_win" src="' + res[0].img_path + '"/>' + '<span class="name_win">' + res[0].name + '</span>' + '<span class="group_win">' + res[0].group + '</span>');
+                    var html = $('<img class="cover_win" src="/' + res[0].img_path + '"/>' + '<span class="name_win">' + res[0].name + '</span>' + '<span class="group_win">' + res[0].group + '</span>');
                     var html_l = $('<div class="track_list">' + '</div>');
                     var html_r = $('<div class="img_list">' + '</div');
                     $('.info').append(html);
@@ -101,7 +106,7 @@
                     }
                     
                     for (var i = 0; i < res[0].img_list.length; i++){
-                        var html_el = $('<img class="alb_img" src = "' + res[0].img_list[i] + '"' + '/>');
+                        var html_el = $('<img class="alb_img" src = "/' + res[0].img_list[i] + '"' + '/>');
                         $('.img_list').append(html_el);
                     }
 
@@ -135,7 +140,7 @@
 
             var rend_elements = function(objs){
                 if (objs.genre == "Rap" && objs.type == "Cassette"){
-                    var html = $('<li class="main-list-cassettes-element">' + '<span class="main-list-cassettes-element-name">' + objs.name + '</span>' + '<a class="img_win">' +'<img class="main-list-cassettes-element-img" src="' + objs.img_path + '"/>' + '</a>' + '<span class="main-list-cassettes-element-price">' + objs.price + '</span>' + '<button class="main-list-cassettes-element-btn">Добавить</button>' + '</li>');
+                    var html = $('<li class="main-list-cassettes-element">' + '<span class="main-list-cassettes-element-name">' + objs.name + '</span>' + '<a class="img_win">' +'<img class="main-list-cassettes-element-img" src="/' + objs.img_path + '"/>' + '</a>' + '<span class="main-list-cassettes-element-price">' + objs.price + '</span>' + '<button class="main-list-cassettes-element-btn">Добавить</button>' + '</li>');
                     $('.main-list-cassettes-container').append(html);
                 }
             }
@@ -144,15 +149,21 @@
                 "use strict";
                 $('.main-list-cassettes').append('<ul class="main-list-cassettes-container"></ul>');
 
-                for (var i = objects.length-1; i >= 0; i--){
-                    rend_elements(objects[i]);
-                }
+                var list = document.location.href.split('/');
+                var name = list[list.length - 2];
+                var page = list[list.length - 1];
+
+                console.log(name + " " + page);
+
+                $.get('/users/' + name + '/' + page + '/goods.json', function(res){
+                    for (var i = res.length-1; i >= 0; i--){
+                        rend_elements(res[i]);
+                    }
+                });
             }
             
            $(document).ready(function(){
-                $.getJSON("goods.json", function (objects) {
-                    main(objects);   
-                });
+                main();   
             });
 
         </script>

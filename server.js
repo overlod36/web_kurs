@@ -38,3 +38,4 @@ app.delete('/users/:login', UsersController.remove);
 app.get('/categories.json', CategoriesController.categorie_list);
 app.get('/categories/:type', CategoriesController.categories_show);
 app.get('/categories/cassette/:name', CategoriesController.cas_show);
+app.get('/categories/DVD/:name', CategoriesController.cas_show);
