@@ -71,32 +71,12 @@
         </footer> 
 
         <script>
-            /*$('.main-list-cassettes').on('click', '.link_to_cat' , function(){
-                var list = document.location.href.split('/');
-                var name = list[list.length - 2];
-                var cat_name = $(this).prev().text();
-                var link;
-                $.get("/categories/cassette/" + cat_name, function(res){
-                    link = res[0].link;
-                    console.log(link);
-                });
-                $.ajax({
-                    'url': '/users/' + name + '/' + link,
-                    'type': 'GET'
-                }).done(function(response) {
-                    window.location.replace('users/' + login + '/');
-                }).fail(function(jqXHR, textStatus, error) {
-                    console.log(error);
-                    alert("Ошибка!" + jqXHR.status + " " + jqXHR.textStatus);   
-                });
-            });
-            */
             var main = function(){
                 "use strict";
                 $('.main-list-cassettes').append('<ul class="main-list-cassettes-container"></ul>');
                 $.get("/categories/cassette", function(res){
                     for (var i = 0; i < res.length; i++){
-                        var html_el = $('<li class="main-list-cassettes-element">' + '<span class="main-list-cassettes-element-name">' + res[i].name + '</span>' + '<a class="link_to_cat" src="/' + res[i].link + '">' + '<img class="main-list-cassettes-element-img" src="/' + res[i].img_path + '"/>' + '</a>' + '</li>');
+                        var html_el = $('<li class="main-list-cassettes-element">' + '<span class="main-list-cassettes-element-name">' + res[i].name + '</span>' + '<a class="link_to_cat" href="' + res[i].link + '">' + '<img class="main-list-cassettes-element-img" src="/' + res[i].img_path + '"/>' + '</a>' + '</li>');
                         $(".main-list-cassettes-container").append(html_el);
                     }
                 });

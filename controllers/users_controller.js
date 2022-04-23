@@ -52,12 +52,29 @@ UsersController.show = function(req, res){
 UsersController.show_page = function(req, res){
 	var log = req.params.login;
 	var page = req.params.page;
-	console.log(log + ' ' + page);
+	console.log(log + ' переходит на страницу -> ' + page);
 	users.find({'login': log}, function(err, result){
 		if (err) {
 			console.log(err);
 		} else if (result.length !== 0) {
 			res.sendfile('./client/' + page);
+		} else {
+		  res.send(404);
+		}
+	});
+}
+
+UsersController.show_json = function(req, res){
+	var log = req.params.login;
+	var page = req.params.page;
+
+	users.find({'login': log}, function(err, result){
+		if (err) {
+			console.log(err);
+		} else if (result.length !== 0) {
+			goods.find({}, function (err, result) {
+				res.json(result);
+			});
 		} else {
 		  res.send(404);
 		}
