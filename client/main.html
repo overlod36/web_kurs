@@ -39,9 +39,9 @@
 
 
                             <div class="header_bar_search">
-                                <form action="/search" method="get" class="header_bar_search_form" role="search">
-                                    <input type="search" name="q" value="" class="header_bar_search_input">
-                                    <button type="submit" class="header_bar_search_btn">
+                                <form class="header_bar_search_form">
+                                    <input value="" class="header_bar_search_input">
+                                    <button type="button" class="header_bar_search_btn" id="btn_1">
                                         <img src="/img/loupe_small.png"/>
                                     </button>
                                 </form>
@@ -52,13 +52,7 @@
             </div>
         </header>
         <main class="main_page">
-            <nav class="main-page-cassettes">
-                <div class="main-list-cassettes">
-                    
-                </div>
-            </nav>
-
-
+            
         </main>
         <footer class="main_page_footer">
             <div class="wrapper">
@@ -68,27 +62,6 @@
                     </div>
                 </div>
             </div>
-        </footer> 
-
-        <script>
-            var main = function(){
-                "use strict";
-                $('.main-list-cassettes').append('<ul class="main-list-cassettes-container"></ul>');
-                $.get("/categories/cassette", function(res){
-                    for (var i = 0; i < res.length; i++){
-                        var html_el = $('<li class="main-list-cassettes-element">' + '<span class="main-list-cassettes-element-name">' + res[i].name + '</span>' + '<a class="link_to_cat" href="' + res[i].link + '">' + '<img class="main-list-cassettes-element-img" src="/' + res[i].img_path + '"/>' + '</a>' + '</li>');
-                        $(".main-list-cassettes-container").append(html_el);
-                    }
-                });
-
-            }
-            $(document).ready(function(){
-                main();
-            });
-
-        </script>
-
-
+        </footer>    
     </body>
 </html>
-

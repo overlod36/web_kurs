@@ -42,7 +42,7 @@ UsersController.show = function(req, res){
 		if (err) {
 			console.log(err);
 		} else if (result.length !== 0) {
-			res.sendfile('./client/cassettes.html');
+			res.sendfile('./client/main.html');
 		} else {
 		  res.send(404);
 		}
