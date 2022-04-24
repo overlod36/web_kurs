@@ -44,6 +44,32 @@ GoodsController.search = function(req, res){
 			}
 		}
 	});
-}
+};
+
+GoodsController.add_alb = function(req, res){
+	var name = req.body.name;
+	console.log("Модератор добавляет альбом -> " + name);
+	goods.find({"name": name}, function (err, result){
+		if (err){
+			console.log("Ошибка! -> " + err);
+			res.status(500).json(err);
+		} else if (result.length !== 0){
+			console.log("Такой альбом уже есть!");
+			res.status(501).send("Уже есть такой альбом!");
+		} else {
+			var alb = new goods({"name":req.body.name, "type":req.body.type, "genre":req.body.genre, "group":req.body.group, "img_path":req.body.img1, "price":req.body.price, "track_list":req.body.tracks, "img_list":req.body.img2});
+			alb.save(function(err, result) {
+				if (err != null){
+					console.log("Ошибка! -> " + err);
+					res.json(500, err);
+				} else {
+					res.json(200, result);
+					console.log("Добавление произошло успешно!");
+				}
+			});
+		}
+
+	});
+};
 
 module.exports = GoodsController;
