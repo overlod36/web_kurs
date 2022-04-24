@@ -4,7 +4,7 @@
         <link rel="stylesheet" type="text/css" href="/css/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <title>Администратор</title>
-        <link rel="icon" type="image/png" href="img/cassette_logo.png">
+        <link rel="icon" type="image/png" href="/img/cassette_logo.png">
     </head>
     <body>
         <header>
@@ -22,7 +22,11 @@
                             </ul>
                         </div>
                         <div class="header_bar_right">
-                            
+                            <div class="header_quit">
+                                <nav>
+                                    <a href="/index.html">Выход</a>
+                                </nav>
+                            </div>
                         </div>   
                     </div>
                 </div>
@@ -90,14 +94,13 @@
             });
 
             $("#del_button").on("click", function() {
-                var user_name = $(".input_to").val();
-                if (user_name != ""){
+                var login = $(".input_to").val();
+                if (login != ""){
                     $.ajax({
-                        'url': '/users/' + user_name,
+                        'url': '/users/' + login,
                         'type': 'DELETE',
                     }).done(function(responde) {
                         console.log(responde);
-                        $input.val("");
                         alert('Пользователь успешно удален');
                     }).fail(function(jqXHR, textStatus, error) {
                         console.log(error);
@@ -107,16 +110,15 @@
             });
 
             $("#ed_button").on("click", function() {
-                var user_name = $(".input_to").val();
-                var new_user_name = prompt("Дайте пользователю новое имя");
-                if (user_name != "" && new_user_name != ""){
+                var login = $(".input_to").val();
+                var new_login = prompt("Дайте пользователю новое имя");
+                if (login != "" && new_login != ""){
                     $.ajax({
-                        'url': '/users/' + user_name,
+                        'url': '/users/' + login + '/' + new_login,
                         'type': 'PUT',
-                        'data': { 'username': new_user_name }
+                        'data': { 'login': new_login }
                     }).done(function(responde) {
                         console.log(responde);
-                        $input.val(newUsername);
                         alert('Имя пользователя успешно изменено');
                     }).fail(function(jqXHR, textStatus, error) {
                         console.log(error);

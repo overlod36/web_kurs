@@ -34,6 +34,7 @@ app.get('/users/:login/:page/goods.json', UsersController.show_json);
 app.post('/users/admin/user/:login', UsersController.create_user);
 app.post('/users/admin/mod/:login', UsersController.create_mod);
 app.delete('/users/:login', UsersController.remove);
+app.put('/users/:login/:new_login', UsersController.edit);
 
 app.get('/categories.json', CategoriesController.categorie_list);
 app.get('/categories/:type', CategoriesController.categories_show);

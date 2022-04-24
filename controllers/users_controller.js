@@ -40,13 +40,16 @@ UsersController.show = function(req, res){
 	console.log("Пользователь " + log + " заходит в систему!");
 	users.find({'login': log}, function(err, result){
 		if (err) {
-			console.log(err);
+			console.log("Ошибка! -> " + err);
 		} else if (result.length !== 0) {
 			if (result[0].pos == 'Пользователь'){
 				res.sendfile('./client/main.html');
 			}
 			else if (result[0].pos == 'Администратор'){
 				res.sendfile('./client/admin_page.html');
+			}
+			else if(result[0].pos == 'Модератор'){
+				res.sendfile('./client/moderator_page.html');
 			}
 		} else {
 		  res.send(404);
@@ -60,7 +63,7 @@ UsersController.show_page = function(req, res){
 	console.log(log + ' переходит на страницу -> ' + page);
 	users.find({'login': log}, function(err, result){
 		if (err) {
-			console.log(err);
+			console.log("Ошибка! -> " + err);
 		} else if (result.length !== 0) {
 			res.sendfile('./client/' + page);
 		} else {
@@ -75,7 +78,7 @@ UsersController.show_json = function(req, res){
 
 	users.find({'login': log}, function(err, result){
 		if (err) {
-			console.log(err);
+			console.log("Ошибка! -> " + err);
 		} else if (result.length !== 0) {
 			goods.find({}, function (err, result) {
 				res.json(result);
@@ -161,6 +164,20 @@ UsersController.remove = function(req, res) {
 			res.status(404).send("Пользователя не существует!");
 		}
 
+	});
+}
+
+UsersController.edit = function(req, res) {
+	var login = req.params.login;
+	var new_login = {$set: {login: req.params.new_login}};
+	console.log("Администратор меняет имя пользователя -> " + login + " на -> " + req.params.new_login);
+	users.updateOne({"login": login}, new_login, function (err,user) {
+		if (err !== null) {
+			console.log("Ошибка! -> " + err);
+			res.json(500, err);
+		} else {
+			res.json(200, user);
+		}
 	});
 }
 
