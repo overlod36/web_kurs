@@ -392,3 +392,41 @@ input{
     padding-top: 25px;
     padding-right: 15px;
 }
+
+.mod_tool{
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.mod_fields{
+    display: flex;
+    flex-direction: row;
+    max-width: 650px;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.mod_field{
+    margin-left: auto;
+}
+
+.mod_text_field{
+    display: flex;
+    flex-direction: column;
+}
+
+.mod_inputs_field{
+    margin-left: 35px;
+    display: flex;
+    flex-direction: column;   
+}
+
+.mod_input{
+    font-size: 14px;
+    padding-top: 1px;
+}
+
+#mod_do_button{
+    margin-left: 180px;
+    margin-top: 36px;
+}

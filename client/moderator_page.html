@@ -35,6 +35,13 @@
         <main class="main_page">
 
             <div class="mod_tool">
+                <span class="mod_text">Название альбома</span>
+                <input type="text">
+                <button id="mod_add_button">Добавить</button>
+                <button id="mod_del_button">Удалить</button>
+                <button id="mod_edit_button">Редактировать</button>
+            </div>
+            <div class="mod_fields">
                 
             </div>
             
@@ -50,7 +57,13 @@
         </footer>
 
         <script>
-            
+            $("#mod_add_button").on("click", function(){
+
+                $('.mod_fields').append('<div class="mod_text_field"><span>Тип альбома</span><span>Жанр</span><span>Группа</span><span>Путь до обложки</span><span>Цена</span><span>Список композиций</span><span>Путь до обратной стороны</span></div>');
+                $('.mod_fields').append('<div class="mod_inputs_field"><input class="mod_input" id="mod_alb_genre" type="text"><input class="mod_input" id="mod_alb_price" type="text"><input class="mod_input" id="mod_alb_group" type="text"><input class="mod_input" id="mod_alb_img1" type="text"><input class="mod_input" id="mod_alb_price" type="text"><input class="mod_input" id="mod_alb_tracks" type="text"><input class="mod_input" id="mod_alb_img2" type="text"></div>');
+                $('.main_page').append('<button id="mod_do_button">Выполнить</button>');
+
+            });
         </script>
 
     </body>
