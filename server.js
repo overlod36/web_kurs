@@ -31,8 +31,8 @@ app.get('/users.json', UsersController.index);
 app.get('/users/:login', UsersController.show);
 app.get('/users/:login/:page', UsersController.show_page);
 app.get('/users/:login/:page/goods.json', UsersController.show_json);
-app.post('/users', UsersController.create_user);
-app.post('/users', UsersController.create_mod);
+app.post('/users/admin/user/:login', UsersController.create_user);
+app.post('/users/admin/mod/:login', UsersController.create_mod);
 app.delete('/users/:login', UsersController.remove);
 
 app.get('/categories.json', CategoriesController.categorie_list);

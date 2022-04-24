@@ -14,7 +14,7 @@
                         <div class="header_bar_left">
                             <ul class="header_bar_ul">
                             <li><a href="#">
-                            <span>Прокат Кассет и DVD</span></a>
+                            <span>Cтраница администратора</span></a>
                             </li>
                             <li class="li_logo"><a href="#">
                             <img class="logo" src = "/img/cassette.png"/></a>
@@ -52,28 +52,45 @@
         <script>
             var main = function(){
                 "use strict";
-            $(".main #reg_button").on("click", function() {
-                var login = $(".main .input_to").val();
+            $("#reg_button").on("click", function() {
+                var login = $(".input_to").val();
                 var type = prompt("Введите тип пользователя");
-                if (user_name != ""){
-                    $.post("users", user, function(result) {
-                        console.log(result);
-                    }).done(function(response) {
-                        console.log(response);
-                        alert('Аккаунт создан! Нажмите "Войти", чтобы продолжить')
-                    }).fail(function(jqXHR, textStatus, error) {
-                        console.log(error);
-                        if (jqXHR.status === 501) {
-                            alert("Такой пользователь уже существует!");
-                        } else {                    
-                            alert("Ошибка!" + jqXHR.status + " " + jqXHR.textStatus);   
-                        }
-                    });
+                if (login != ""){
+                    if (type == "Пользователь"){
+                        console.log('+');
+                        $.post("/users/admin/user/" + login, function(result) {
+                            console.log(result);
+                        }).done(function(response) {
+                            console.log(response);
+                            alert('Аккаунт создан!');
+                        }).fail(function(jqXHR, textStatus, error) {
+                            console.log(error);
+                            if (jqXHR.status === 501) {
+                                alert("Такой пользователь уже существует!");
+                            } else {                    
+                                alert("Ошибка!" + jqXHR.status + " " + jqXHR.textStatus);   
+                            }
+                        });
+                    } else if (type == "Модератор"){
+                        $.post("/users/admin/mod/" + login, function(result) {
+                            console.log(result);
+                        }).done(function(response) {
+                            console.log(response);
+                            alert('Аккаунт создан!');
+                        }).fail(function(jqXHR, textStatus, error) {
+                            console.log(error);
+                            if (jqXHR.status === 501) {
+                                alert("Такой пользователь уже существует!");
+                            } else {                    
+                                alert("Ошибка!" + jqXHR.status + " " + jqXHR.textStatus);   
+                            }
+                        });
+                    }
                 }
             });
 
-            $(".main #del_button").on("click", function() {
-                var user_name = $(".main .input_to").val();
+            $("#del_button").on("click", function() {
+                var user_name = $(".input_to").val();
                 if (user_name != ""){
                     $.ajax({
                         'url': '/users/' + user_name,
@@ -89,8 +106,8 @@
                 }
             });
 
-            $(".main #ed_button").on("click", function() {
-                var user_name = $(".main .input_to").val();
+            $("#ed_button").on("click", function() {
+                var user_name = $(".input_to").val();
                 var new_user_name = prompt("Дайте пользователю новое имя");
                 if (user_name != "" && new_user_name != ""){
                     $.ajax({
