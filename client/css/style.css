@@ -401,7 +401,7 @@ input{
 .mod_fields{
     display: flex;
     flex-direction: row;
-    max-width: 650px;
+    max-width: 850px;
     padding-top: 15px;
     padding-left: 15px;
 }
@@ -434,4 +434,12 @@ input{
 #mod_doedit_button{
     margin-left: 180px;
     margin-top: 36px;   
+}
+
+.rob_img{
+    padding-left: 50px;
+}
+
+.rob_img img{
+    width: 165px;
 }

@@ -105,6 +105,7 @@
                 $('#mod_doedit_button').remove();
                 $('.mod_fields').append('<div class="mod_text_field"><span>Тип альбома</span><span>Жанр</span><span>Группа</span><span>Путь до обложки</span><span>Цена</span><span>Список композиций</span><span>Путь до обратной стороны</span></div>');
                 $('.mod_fields').append('<div class="mod_inputs_field"><input class="mod_input" id="mod_alb_type" type="text"><input class="mod_input" id="mod_alb_genre" type="text"><input class="mod_input" id="mod_alb_group" type="text"><input class="mod_input" id="mod_alb_img1" type="text"><input class="mod_input" id="mod_alb_price" type="text"><input class="mod_input" id="mod_alb_tracks" type="text"><input class="mod_input" id="mod_alb_img2" type="text"></div>');
+                $('.mod_fields').append('<div class="rob_img"><img src="/img/rob.png"/></div>');
                 $('.main_page').append('<button id="mod_doadd_button">Выполнить</button>');
 
             });
@@ -142,6 +143,7 @@
                 $('.mod_fields').append('<div class="mod_text_field"><span>Тип альбома</span><span>Жанр</span><span>Группа</span><span>Путь до обложки</span><span>Цена</span><span>Список композиций</span><span>Путь до обратной стороны</span></div>');
                 $('.mod_fields').append('<div class="mod_inputs_field"><input class="mod_input" id="mod_alb_type" type="text"><input class="mod_input" id="mod_alb_genre" type="text"><input class="mod_input" id="mod_alb_group" type="text"><input class="mod_input" id="mod_alb_img1" type="text"><input class="mod_input" id="mod_alb_price" type="text"><input class="mod_input" id="mod_alb_tracks" type="text"><input class="mod_input" id="mod_alb_img2" type="text"></div>');
                 $('.main_page').append('<button id="mod_doedit_button">Выполнить</button>');
+                $('.mod_fields').append('<div class="rob_img"><img src="/img/rob.png"/></div>');
                 var name = $('.mod_alb_name').val();
                 $.get('/goods_show/' + name, function(res){
                     $('.mod_alb_name').val(res[0].name);
