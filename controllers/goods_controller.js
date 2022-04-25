@@ -96,9 +96,8 @@ GoodsController.del_alb = function(req, res){
 };
 
 GoodsController.up_alb = function(req, res){
-	var alb = {$set: req.body};
 	console.log("Модератор изменяет содержимое альбома -> " + req.body.name);
-	goods.updateOne({"name": req.body.name}, alb, function(err, result){
+	goods.updateOne({"name": req.body.name}, {"name":req.body.name, "type":req.body.type, "genre":req.body.genre, "group":req.body.group, "img_path":req.body.img1, "price":req.body.price, "track_list":req.body.tracks, "img_list":req.body.img2}, function(err, result){
 		if (err !== null) {
 			console.log("Ошибка! -> " + err);
 			res.json(500, err);
