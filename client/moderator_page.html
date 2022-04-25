@@ -76,6 +76,28 @@
                 
             });
 
+            $('.main_page').on('click', '#mod_doedit_button', function(){
+                if ($('.mod_alb_name').val() != ""){
+                    var name = $('.mod_alb_name').val();
+                    var type = $('#mod_alb_type').val();
+                    var genre = $('#mod_alb_genre').val();
+                    var group = $('#mod_alb_group').val();
+                    var img1 = $('#mod_alb_img1').val();
+                    var price = $('#mod_alb_price').val();
+                    var tracks = $('#mod_alb_tracks').val().split(',');
+                    var img2 = $('#mod_alb_img2').val().split(' ');
+                    var to_send = {"name": name, "type":type, "genre": genre, "group":group, "img1":img1, "price":price, "tracks":tracks, "img2": img2};
+                    console.log(to_send);
+                    $.ajax({
+                        'url': '/goods/update',
+                        'type': 'PUT',
+                        'data' : to_send
+                    }).done(function(responde){
+                        alert('Альбом изменен!');
+                    }); 
+                }
+            });
+
 
             $("#mod_add_button").on("click", function(){
                 $('.mod_fields').empty();
@@ -109,6 +131,25 @@
                         
                     }
                 }
+            });
+
+            $("#mod_edit_button").on('click', function(){
+                $('.mod_fields').empty();
+                $('#mod_doadd_button').remove();
+                $('.mod_fields').append('<div class="mod_text_field"><span>Тип альбома</span><span>Жанр</span><span>Группа</span><span>Путь до обложки</span><span>Цена</span><span>Список композиций</span><span>Путь до обратной стороны</span></div>');
+                $('.mod_fields').append('<div class="mod_inputs_field"><input class="mod_input" id="mod_alb_type" type="text"><input class="mod_input" id="mod_alb_genre" type="text"><input class="mod_input" id="mod_alb_group" type="text"><input class="mod_input" id="mod_alb_img1" type="text"><input class="mod_input" id="mod_alb_price" type="text"><input class="mod_input" id="mod_alb_tracks" type="text"><input class="mod_input" id="mod_alb_img2" type="text"></div>');
+                $('.main_page').append('<button id="mod_doedit_button">Выполнить</button>');
+                var name = $('.mod_alb_name').val();
+                $.get('/goods_show/' + name, function(res){
+                    $('.mod_alb_name').val(res[0].name);
+                    $('#mod_alb_type').val(res[0].type);
+                    $('#mod_alb_genre').val(res[0].genre);
+                    $('#mod_alb_group').val(res[0].group);
+                    $('#mod_alb_img1').val(res[0].img_path);
+                    $('#mod_alb_price').val(res[0].price);
+                    $('#mod_alb_tracks').val(res[0].track_list);
+                    $('#mod_alb_img2').val(res[0].img_list); 
+                });
             });
 
         </script>

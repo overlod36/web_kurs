@@ -95,4 +95,17 @@ GoodsController.del_alb = function(req, res){
 	});
 };
 
+GoodsController.up_alb = function(req, res){
+	var alb = {$set: req.body};
+	console.log("Модератор изменяет содержимое альбома -> " + req.body.name);
+	goods.updateOne({"name": req.body.name}, alb, function(err, result){
+		if (err !== null) {
+			console.log("Ошибка! -> " + err);
+			res.json(500, err);
+		} else {
+			res.json(200, result);
+		}
+	});
+};
+
 module.exports = GoodsController;
