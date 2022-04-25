@@ -72,4 +72,27 @@ GoodsController.add_alb = function(req, res){
 	});
 };
 
+GoodsController.del_alb = function(req, res){
+	var name = req.params.name;
+	console.log("Модератор удаляет альбом -> " + name);
+	goods.find({"name": name}, function(err, result){
+		if (err){
+			console.log("Ошибка! -> " + err);
+			res.status(500).json(err);
+		} else if (result.length !== 0){
+			goods.deleteOne({"name": name}, function(err, alb){
+				if (err !== null) {
+					console.log("Ошибка! -> " + err);
+					res.status(500).json(err);
+				} else {
+					res.status(200).json(alb);
+				}
+			});
+		} else {
+			res.status(404).send("Такого альбома нет!");
+            console.log("Ошибка! -> " + err);
+		}
+	});
+};
+
 module.exports = GoodsController;

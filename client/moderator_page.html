@@ -76,6 +76,7 @@
                 
             });
 
+
             $("#mod_add_button").on("click", function(){
                 $('.mod_fields').empty();
                 $('#mod_doadd_button').remove();
@@ -84,6 +85,32 @@
                 $('.main_page').append('<button id="mod_doadd_button">Выполнить</button>');
 
             });
+
+            $("#mod_del_button").on('click', function(){
+                if($('.mod_fields').children().length != 0){
+                    
+                    $('.mod_fields').empty();
+                    $('#mod_doadd_button').remove();
+                }
+                else{
+                    if (confirm('Вы действительно хотите удалить альбом?')){
+                        var name = $('.mod_alb_name').val();
+
+                        $.ajax({
+                            'url': '/goods/delete/' + name,
+                            'type': 'DELETE',
+                        }).done(function(responde) {
+                            console.log(responde);
+                            alert('Альбом удален!');
+                        }).fail(function(jqXHR, textStatus, error) {
+                            console.log(error);
+                            alert("Ошибка!" + jqXHR.status + " " + jqXHR.textStatus);   
+                        });
+                        
+                    }
+                }
+            });
+
         </script>
 
     </body>

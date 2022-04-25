@@ -26,6 +26,7 @@ app.get('/goods.json', GoodsController.good_list);
 app.get('/goods_show/:name', GoodsController.show_alb);
 app.get('/goods_search/:group', GoodsController.search);
 app.post('/goods/add', GoodsController.add_alb);
+app.delete('/goods/delete/:name', GoodsController.del_alb);
 
 
 app.get('/users.json', UsersController.index);
